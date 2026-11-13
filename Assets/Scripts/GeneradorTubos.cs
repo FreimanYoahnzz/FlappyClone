@@ -5,7 +5,7 @@ public class GeneradorTubos : MonoBehaviour
     [SerializeField] private GameObject prefabTubos;
     [SerializeField] private float intervaloAparicion = 3f;
     [SerializeField] private float alturaMaxima = 3f;
-    [SerializeField] private float alturaMinima = -3f;
+    [SerializeField] private float alturaMinima = -2f;
     private float temporizador = 2f;
 
     void Start()
