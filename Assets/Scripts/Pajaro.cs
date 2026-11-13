@@ -8,6 +8,16 @@ public class Pajaro : MonoBehaviour
     [SerializeField] private float inclinacionMin = -60f;
     [SerializeField] private float inclinacionMax = 60f;
     [SerializeField] private float multiplicadorInclinacion = 6f;
+    private int puntaje = 0;
+    void OnTriggerEnter2D(Collider2D objeto)
+    {
+
+        if (objeto.CompareTag("ZonaPuntaje"))
+        {
+            puntaje += 1;
+            Debug.Log("PUNTUACIÓN " + puntaje);
+        }
+    }
 
     private void Awake()
     {
