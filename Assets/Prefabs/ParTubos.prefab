@@ -215,7 +215,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::MovimientoTubos
   velocidad: 1
-  limIzquierdo: 12
+  limIzquierdo: -12
 --- !u!1 &4645461145155184462
 GameObject:
   m_ObjectHideFlags: 0
