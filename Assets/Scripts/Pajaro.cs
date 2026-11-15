@@ -9,7 +9,6 @@ public class Pajaro : MonoBehaviour
     [SerializeField] private float multiplicadorInclinacion = 6f;
     [SerializeField] private GameManager gameManager;
     private Rigidbody2D rb;
-    private int puntaje = 0;
     private bool estaVivo = true;
 
 
@@ -42,8 +41,7 @@ public class Pajaro : MonoBehaviour
 
         if (objeto.CompareTag("ZonaPuntaje"))
         {
-            puntaje += 1;
-            Debug.Log("PUNTUACIÓN " + puntaje);
+            gameManager.SumarPunto();
         }
     }
 
