@@ -649,6 +649,8 @@ MonoBehaviour:
   inclinacionMax: 60
   multiplicadorInclinacion: 6
   gameManager: {fileID: 1654315485}
+  prefabTextoFlotante: {fileID: 1176776462213089677, guid: 5889dabf4f213994c85a81f10baca8b5, type: 3}
+  desplazamiento: {x: 0, y: 0.8, z: 0}
 --- !u!1 &619394800
 GameObject:
   m_ObjectHideFlags: 0

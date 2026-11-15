@@ -8,6 +8,8 @@ public class Pajaro : MonoBehaviour
     [SerializeField] private float inclinacionMax = 60f;
     [SerializeField] private float multiplicadorInclinacion = 6f;
     [SerializeField] private GameManager gameManager;
+    [SerializeField] private GameObject prefabTextoFlotante;
+    [SerializeField] private Vector3 desplazamiento = new Vector3(0f, 0.8f, 0f);
     private Rigidbody2D rb;
     private bool estaVivo = true;
 
@@ -42,6 +44,7 @@ public class Pajaro : MonoBehaviour
         if (objeto.CompareTag("ZonaPuntaje"))
         {
             gameManager.SumarPunto();
+            Instantiate(prefabTextoFlotante, (transform.position + desplazamiento), Quaternion.identity);
         }
     }
 
