@@ -5,9 +5,11 @@ using UnityEngine.SceneManagement;
 
 public class GameManager : MonoBehaviour
 {
-    [SerializeField] private float tiempoPausa = 1.5f;
+    [SerializeField] private float tiempoPausa = 0.15f;
     [SerializeField] private TMP_Text textoPuntaje;
     [SerializeField] private GameObject textoInicio;
+    [SerializeField] private GameObject panel;
+    [SerializeField] private TMP_Text textoPuntajeFinal;
     private int puntaje = 0;
     private EstadoJuego estadoJuego = EstadoJuego.Esperando;
 
@@ -18,11 +20,11 @@ public class GameManager : MonoBehaviour
     }
 
 
-    IEnumerator Reiniciar()
+    IEnumerator MostrarGameOver()
     {
         yield return new WaitForSecondsRealtime(tiempoPausa);
-        Time.timeScale = 1f;
-        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
+        textoPuntajeFinal.text = "Puntaje: " + puntaje;
+        panel.SetActive(true);
     }
 
 
@@ -30,8 +32,7 @@ public class GameManager : MonoBehaviour
     {
         estadoJuego = EstadoJuego.GameOver;
         Time.timeScale = 0f;
-        Debug.Log("GAME OVER");
-        StartCoroutine(Reiniciar());
+        StartCoroutine(MostrarGameOver());
 
     }
 
@@ -58,6 +59,12 @@ public class GameManager : MonoBehaviour
     {
         estadoJuego = EstadoJuego.Jugando;
         textoInicio.SetActive(false);
+    }
+
+    public void Reintentar()
+    {
+        Time.timeScale = 1f;
+        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
     }
 }
 
