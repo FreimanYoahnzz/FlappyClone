@@ -3,7 +3,7 @@ using UnityEngine;
 public class MovimientoTubos : MonoBehaviour
 {
     [SerializeField] private float velocidad = 1f;
-    [SerializeField] private float limIzquierdo = -12f;
+    [SerializeField] private float limiteIzquierdo = -12f;
     private Rigidbody2D rb;
 
     private void Awake()
@@ -18,7 +18,7 @@ public class MovimientoTubos : MonoBehaviour
 
     void Update()
     {
-        if (transform.position.x <= limIzquierdo)
+        if (transform.position.x <= limiteIzquierdo)
         {
             Destroy(gameObject);
         }

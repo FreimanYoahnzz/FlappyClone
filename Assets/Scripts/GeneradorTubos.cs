@@ -6,7 +6,8 @@ public class GeneradorTubos : MonoBehaviour
     [SerializeField] private float intervaloAparicion = 3f;
     [SerializeField] private float alturaMaxima = 3f;
     [SerializeField] private float alturaMinima = -2f;
-    private float temporizador = 2f;
+    [SerializeField] private GameManager gameManager;
+    private float temporizador;
 
     void Start()
     {
@@ -14,6 +15,10 @@ public class GeneradorTubos : MonoBehaviour
     }
     void Update()
     {
+        if (!gameManager.EstaJugando())
+        {
+            return;
+        }
         temporizador += Time.deltaTime;
 
         if (temporizador >= intervaloAparicion)

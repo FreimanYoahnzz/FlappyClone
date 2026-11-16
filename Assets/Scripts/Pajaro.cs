@@ -20,6 +20,12 @@ public class Pajaro : MonoBehaviour
     }
 
 
+    private void Start()
+    {
+        rb.simulated = false;
+    }
+
+
     void Update()
     {
         if (!estaVivo)
@@ -29,6 +35,11 @@ public class Pajaro : MonoBehaviour
 
         if (Pointer.current.press.wasPressedThisFrame || (Keyboard.current != null && Keyboard.current.spaceKey.wasPressedThisFrame))
         {
+            if (!gameManager.EstaJugando())
+            {
+                gameManager.EmpezarJuego();
+                rb.simulated = true;
+            }
             rb.linearVelocity = new Vector2(0f, fuerzaAleteo);
         }
 

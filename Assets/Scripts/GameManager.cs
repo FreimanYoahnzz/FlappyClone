@@ -7,7 +7,9 @@ public class GameManager : MonoBehaviour
 {
     [SerializeField] private float tiempoPausa = 1.5f;
     [SerializeField] private TMP_Text textoPuntaje;
+    [SerializeField] private GameObject textoInicio;
     private int puntaje = 0;
+    private EstadoJuego estadoJuego = EstadoJuego.Esperando;
 
 
     void Start()
@@ -26,9 +28,11 @@ public class GameManager : MonoBehaviour
 
     public void TerminarJuego()
     {
+        estadoJuego = EstadoJuego.GameOver;
         Time.timeScale = 0f;
         Debug.Log("GAME OVER");
         StartCoroutine(Reiniciar());
+
     }
 
 
@@ -43,4 +47,24 @@ public class GameManager : MonoBehaviour
         puntaje += 1;
         ActualizarTexto();
     }
+
+    public bool EstaJugando()
+    {
+
+        return estadoJuego == EstadoJuego.Jugando;
+    }
+
+    public void EmpezarJuego()
+    {
+        estadoJuego = EstadoJuego.Jugando;
+        textoInicio.SetActive(false);
+    }
+}
+
+
+public enum EstadoJuego
+{
+    Esperando,
+    Jugando,
+    GameOver
 }
