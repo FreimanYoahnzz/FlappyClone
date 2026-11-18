@@ -2,7 +2,7 @@ using UnityEngine;
 
 public class MovimientoTubos : MonoBehaviour
 {
-    [SerializeField] private float velocidad = 1f;
+    [SerializeField] private float velocidad = 2f;
     [SerializeField] private float limiteIzquierdo = -12f;
     private Rigidbody2D rb;
 

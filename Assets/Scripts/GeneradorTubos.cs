@@ -3,7 +3,7 @@ using UnityEngine;
 public class GeneradorTubos : MonoBehaviour
 {
     [SerializeField] private GameObject prefabTubos;
-    [SerializeField] private float intervaloAparicion = 3f;
+    [SerializeField] private float intervaloAparicion = 1.5f;
     [SerializeField] private float alturaMaxima = 3f;
     [SerializeField] private float alturaMinima = -2f;
     [SerializeField] private GameManager gameManager;
